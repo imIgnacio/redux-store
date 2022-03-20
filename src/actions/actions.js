@@ -1,5 +1,5 @@
 import { GET_CHARACTERS } from "../types/types"
 
-export function getCharacters() {
-    return { type: GET_CHARACTERS }
+export function getCharacters(payload) {
+    return { type: GET_CHARACTERS, payload }
 }
