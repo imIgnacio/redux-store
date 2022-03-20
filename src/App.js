@@ -10,9 +10,9 @@ function App() {
   const dispatch = useDispatch();
   const characters = useSelector( (state) => state.characters);
 
-  React.useEffect( async () => {
-    const data = await getCharacters()
-    dispatch({ type: GET_CHARACTERS, payload: data });
+  React.useEffect( () => {
+    getCharacters()
+    .then((data) => dispatch({ type: GET_CHARACTERS, payload: data }))
   }, []);
 
   return <div className="App">
