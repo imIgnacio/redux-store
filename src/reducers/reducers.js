@@ -1,13 +1,16 @@
+import { GET_CHARACTERS } from "../types/types";
+import axios from 'axios';
+
 const initialState = {
-    count: 0
+    characters: []
 }
 
 const counterReducer = (state = initialState, action) => {
     switch(action.type) {
-        case 'increment':
-            return {...state, count: state.count + 1};
-        case 'decrement':
-            return {...state, count: state.count - 1};
+        case GET_CHARACTERS:
+            axios.get('http://hp-api.herokuapp.com/api/characters')
+            .then(res => state.characters.push(res));
+            return { ...state }
         default:
             return state;
     }
