@@ -4,6 +4,8 @@ import { GET_CHARACTERS, LOADING } from './types/types';
 import { getCharacters } from './api/getCharacters';
 import React from 'react';
 import { store } from './index';
+import Spinner from './components/spinner/Spinner';
+import Card from './components/card/Card';
 
 function App() {
 
@@ -19,13 +21,10 @@ function App() {
 
   return <div className="App">
 
-      {isLoading? <p>Loading...</p> : characters.map((character, index) => {
-          return <h2> {character.name} </h2>;
-        })}
-
-        {/* {characters.map((character, index) => {
-          return <h2> {character.name} </h2>;
-        })} */}
+      {isLoading? <Spinner/> : characters.map((character, index) => {
+        return <Card image={character.image} name={character.name} house={character.house} />;
+        })
+      }
     </div>
 }
 
