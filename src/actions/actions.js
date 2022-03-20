@@ -1,7 +1,5 @@
-export function increment() {
-    return { type: 'increment' }
-}
+import { GET_CHARACTERS } from "../types/types"
 
-export function decrement() {
-    return { type: 'decrement' }
+export function getCharacters() {
+    return { type: GET_CHARACTERS }
 }
