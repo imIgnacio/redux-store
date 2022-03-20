@@ -1,15 +1,21 @@
-import { GET_CHARACTERS } from "../types/types";
+import { GET_CHARACTERS, LOADING } from "../types/types";
 import { store } from "../index";
 
 const initialState = {
-    characters: []
+    characters: [],
+    isLoading: false
 }
 
 const counterReducer = (state = initialState, action) => {
 
     switch(action.type) {
+        case LOADING:
+            return { ...state, isLoading: true }
         case GET_CHARACTERS:
-            return { ...state, characters: action.payload }
+            return { 
+                ...state,
+                isLoading: false, 
+                characters: action.payload }
         default:
             return state;
     }
